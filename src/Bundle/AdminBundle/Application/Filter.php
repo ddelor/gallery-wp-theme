@@ -21,7 +21,7 @@ class Filter extends FilterAction
        return array(
            'index.php', // Dashboard
            'separator1', // First separator
-           'edit.php', // Posts
+           // 'edit.php', // Posts
            'edit.php?post_type=art',
            'edit.php?post_type=custom', // Pages
            'link-manager.php', // Links
