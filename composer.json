@@ -1,0 +1,32 @@
+{
+    "name": "opsone/wordpress-theme-kit",
+    "type": "project",
+    "description": "Create empty wordpress theme with minimal developper kit",
+    "homepage": "https://github.com/opsone/wordpress-theme-kit",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/opsone/wordpress-theme-kit/issues",
+        "source": "https://github.com/opsone/wordpress-theme-kit"
+    },
+    "authors": [
+        {
+            "name": "Jeremy Chaufourier",
+            "email": "jeremy@opsone.net",
+            "homepage": "https://github.com/batosai"
+        }
+    ],
+    "require": {
+        "tgmpa/tgm-plugin-activation": "~2.4",
+        "Respect/Validation": "~0.9"
+    },
+    "autoload": {
+        "psr-0" : {
+            "Bundle" : "src/"
+        }
+    },
+    "scripts": {
+      "post-install-cmd": [
+            "php -r \"file_put_contents('style.css', str_replace('#name#', ucfirst(basename(__DIR__)), file_get_contents('style.css')));\""
+        ]
+    }
+}
