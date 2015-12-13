@@ -3,7 +3,6 @@
 namespace Bundle\AdminBundle\Application\Metabox;
 
 use Bundle\AdminBundle\Application\Filter as FilterAction;
-use \WP_Query;
 
 class Page extends FilterAction
 {
@@ -23,6 +22,35 @@ class Page extends FilterAction
         $listArts[$art->ID] = $art->post_title;
       }
 
+      // HOME
+      $meta_boxes[] = array(
+          'id'       => 'home_slider_content',
+          'title'    => 'Contenu du slider',
+          'pages'    => array( 'page' ),
+          'context'  => 'normal',
+          'priority' => 'high',
+          'show'     => array(
+              'template' => array(
+                  'template-page-home.php',
+                )
+            ),
+          'autosave' => true,
+
+          // List of meta fields
+          'fields' => array(
+              array(
+                  'name'     => 'Oeuvres',
+                  'id'       => FilterAction::PREFIX . "slider_art",
+                  'type'     => 'autocomplete',
+                  'desc'     => 'Choisissez une ou plusieurs oeuvre à insérer dans le slider',
+                  'multiple' => true,
+                  'clone'    => false,
+                  'options'  => $listArts,
+              ),
+          )
+      );
+
+      // ART
       $meta_boxes[] = array(
           'id'       => 'page_content',
           'title'    => 'Contenu',
@@ -48,15 +76,16 @@ class Page extends FilterAction
           )
       );
 
+      // ABOUT
       $meta_boxes[] = array(
-          'id'       => 'home_slider_content',
-          'title'    => 'Contenu du slider',
+          'id'       => 'formations_list',
+          'title'    => 'Liste de formations',
           'pages'    => array( 'page' ),
           'context'  => 'normal',
           'priority' => 'high',
           'show'     => array(
               'template' => array(
-                  'template-page-home.php',
+                  'template-page-about.php',
                 )
             ),
           'autosave' => true,
@@ -64,13 +93,100 @@ class Page extends FilterAction
           // List of meta fields
           'fields' => array(
               array(
-                  'name'     => 'Oeuvres',
-                  'id'       => FilterAction::PREFIX . "slider_art",
-                  'type'     => 'autocomplete',
-                  'desc'     => 'Choisissez une ou plusieurs oeuvre à insérer dans le slider',
-                  'multiple' => true,
-                  'clone'    => false,
-                  'options'  => $listArts,
+                  'name'     => 'Formation',
+                  'id'       => FilterAction::PREFIX . "formation",
+                  'type'     => 'group',
+                  'clone'    => true,
+
+                  'fields' => array(
+                      array(
+                          'name'  => 'Dates',
+                          'id'    => FilterAction::PREFIX . "formation_dates",
+                          'type'  => 'text',
+                          'clone' => false,
+                      ),
+                      array(
+                          'name'  => 'Description',
+                          'id'    => FilterAction::PREFIX . "formation_description",
+                          'type'  => 'textarea',
+                          'cols'  => 20,
+                          'rows'  => 3,
+                          'clone' => false,
+                      ),
+                  ),
+              ),
+          )
+      );
+
+      $meta_boxes[] = array(
+          'id'       => 'exhibitions_list',
+          'title'    => 'Liste d\'expositions',
+          'pages'    => array( 'page' ),
+          'context'  => 'normal',
+          'priority' => 'high',
+          'show'     => array(
+              'template' => array(
+                  'template-page-about.php',
+                )
+            ),
+          'autosave' => true,
+
+          // List of meta fields
+          'fields' => array(
+              array(
+                  'name'     => 'Exposition',
+                  'id'       => FilterAction::PREFIX . "exhibition",
+                  'type'     => 'group',
+                  'clone'    => true,
+
+                  'fields' => array(
+                      array(
+                          'name'  => 'Année de début',
+                          'id'    => FilterAction::PREFIX . "exhibition_year_start",
+                          'type'  => 'text',
+                          'clone' => false,
+                      ),
+                      array(
+                          'name'  => 'Année de fin',
+                          'id'    => FilterAction::PREFIX . "exhibition_year_end",
+                          'type'  => 'text',
+                          'clone' => false,
+                      ),
+                      array(
+                          'name'  => 'Description',
+                          'id'    => FilterAction::PREFIX . "exhibition_description",
+                          'type'  => 'textarea',
+                          'cols'  => 20,
+                          'rows'  => 3,
+                          'clone' => false,
+                      ),
+                  ),
+              ),
+          )
+      );
+
+      $meta_boxes[] = array(
+          'id'       => 'misc_list',
+          'title'    => 'Informations Diverses',
+          'pages'    => array( 'page' ),
+          'context'  => 'normal',
+          'priority' => 'high',
+          'show'     => array(
+              'template' => array(
+                  'template-page-about.php',
+                )
+            ),
+          'autosave' => true,
+
+          // List of meta fields
+          'fields' => array(
+              array(
+                  'name'  => 'Divers',
+                  'id'    => FilterAction::PREFIX . "misc",
+                  'type'  => 'textarea',
+                  'cols'  => 20,
+                  'rows'  => 3,
+                  'clone' => true,
               ),
           )
       );

@@ -9,6 +9,12 @@ class Hook extends HookAction
     public static function loadJs()
     {
         HookAction::loadJs();
+
+        wp_register_script('bootstrap', get_template_directory_uri() . '/assets/front/libs/bootstrap.min.js', array('jquery'), false, true);
+        wp_register_script('sudoSlider', get_template_directory_uri() . '/assets/front/libs/jquery.sudoSlider.min.js', array('jquery'), false, true);
+
+        wp_enqueue_script('bootstrap');
+        wp_enqueue_script('sudoSlider');
     }
 
     public static function loadCss()
@@ -26,6 +32,12 @@ class Hook extends HookAction
         //     if ( 0 > version_compare( intval( $response['version'] ) , 9 ) )
         //         wp_enqueue_style( ... );
         // }
+
+        wp_register_style('bootstrap', get_template_directory_uri() . '/assets/front/libs/bootstrap.min.css', null, false);
+        wp_register_style('app', get_template_directory_uri() . '/assets/front/css/app.css', null, false);
+
+        wp_enqueue_style('bootstrap');
+        wp_enqueue_style('app');
 
     }
 }

@@ -3,7 +3,6 @@
 namespace Bundle\AdminBundle\Application\Metabox;
 
 use Bundle\AdminBundle\Application\Filter as FilterAction;
-use \WP_Query;
 
 class Art extends FilterAction
 {

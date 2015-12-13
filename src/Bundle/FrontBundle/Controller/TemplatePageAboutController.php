@@ -4,7 +4,7 @@ namespace Bundle\FrontBundle\Controller;
 
 use Bundle\CoreBundle\Controller\Controller;
 
-class TemplatePageContactController extends Controller
+class TemplatePageAboutController extends Controller
 {
     protected function get(){
         return array();

@@ -99,6 +99,7 @@ function optionsframework_options() {
 
     $options = array();
 
+    // 1ST TAB : INFOS GÉNÉRALES
     $options[] = array(
         'name' => __('Informations Générales', 'options_framework_theme'),
         'type' => 'heading');
@@ -107,54 +108,49 @@ function optionsframework_options() {
         'name' => __('Nom de l\'artiste', 'options_framework_theme'),
         'desc' => __('Nom de l\'artiste', 'options_framework_theme'),
         'id' => 'option_artist_name',
-        'std' => '',
         'type' => 'text');
 
     $options[] = array(
         'name' => __('Description de l\'artiste', 'options_framework_theme'),
         'desc' => __('Description de l\'artiste', 'options_framework_theme'),
         'id' => 'option_artist_description',
-        'std' => '',
         'type' => 'text');
 
     $options[] = array(
         'name' => __('En ce moment', 'options_framework_theme'),
         'desc' => __('Placer ici la dernière actualité à mettre en avant', 'options_framework_theme'),
         'id' => 'option_artist_news',
-        'std' => '',
         'type' => 'textarea');
 
     $options[] = array(
         'name' => __('Adresse', 'options_framework_theme'),
         'desc' => __('Adresse', 'options_framework_theme'),
         'id' => 'option_artist_address',
-        'std' => '',
         'type' => 'textarea');
 
     $options[] = array(
         'name' => __('Téléphone fixe', 'options_framework_theme'),
         'desc' => __('Téléphone fixe', 'options_framework_theme'),
         'id' => 'option_artist_phone',
-        'std' => '',
         'type' => 'text');
 
     $options[] = array(
         'name' => __('Téléphone mobile', 'options_framework_theme'),
         'desc' => __('Téléphone mobile', 'options_framework_theme'),
         'id' => 'option_artist_mobile',
-        'std' => '',
         'type' => 'text');
 
     $options[] = array(
         'name' => __('Email', 'options_framework_theme'),
         'desc' => __('Email', 'options_framework_theme'),
         'id' => 'option_artist_email',
-        'std' => '',
         'type' => 'text');
 
     $options[] = array(
-        'name' => __('Parcours', 'options_framework_theme'),
-        'type' => 'heading');
+        'name' => __('Naissance', 'options_framework_theme'),
+        'desc' => __('Informations de naissance', 'options_framework_theme'),
+        'id' => 'option_artist_born',
+        'type' => 'text');
 
     /*
 
