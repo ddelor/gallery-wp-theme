@@ -10,7 +10,7 @@ class Hook extends HookAction
     {
         HookAction::loadJs();
 
-        wp_register_script('bootstrap', get_template_directory_uri() . '/assets/front/libs/bootstrap.min.js', array('jquery'), false, true);
+        wp_register_script('bootstrap', get_template_directory_uri() . '/assets/front/libs/bootstrap/js/bootstrap.min.js', array('jquery'), false, true);
         wp_register_script('sudoSlider', get_template_directory_uri() . '/assets/front/libs/jquery.sudoSlider.min.js', array('jquery'), false, true);
 
         wp_enqueue_script('bootstrap');
@@ -33,10 +33,12 @@ class Hook extends HookAction
         //         wp_enqueue_style( ... );
         // }
 
-        wp_register_style('bootstrap', get_template_directory_uri() . '/assets/front/libs/bootstrap.min.css', null, false);
+        wp_register_style('bootstrap', get_template_directory_uri() . '/assets/front/libs/bootstrap/css/bootstrap.min.css', null, false);
+        wp_register_style('normalize', get_template_directory_uri() . '/assets/front/css/normalize.css', null, false);
         wp_register_style('app', get_template_directory_uri() . '/assets/front/css/app.css', null, false);
 
         wp_enqueue_style('bootstrap');
+        wp_enqueue_style('normalize');
         wp_enqueue_style('app');
 
     }

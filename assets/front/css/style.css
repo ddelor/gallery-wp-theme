@@ -1,4 +1,4 @@
-body {
+/*body {
     background:#eee;
 }
 
@@ -36,11 +36,11 @@ header {
 
 .entry-content img {
     max-width: 100%;
-}
+}*/
 
 /* Form */
 
-label span{
+/*label span{
     display: inline-block;
     width:200px;
 }
@@ -58,3 +58,4 @@ form li {
     margin-left: 50px;
     list-style: none;
 }
+*/
