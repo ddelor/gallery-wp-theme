@@ -3,38 +3,34 @@
 get_header();
 ?>
 
-<div id="content">
+<h1><?php echo of_get_option( 'option_artist_name', '' ); ?></h1>
+<p><?php echo of_get_option( 'option_artist_description', '' ); ?></p>
 
-    <h1>Accueil</h1>
-    <div id="content">
+<h2>En ce moment</h2>
+<p><?php echo of_get_option( 'option_artist_news', '' ); ?></p>
 
-        <h1><?php echo of_get_option( 'option_artist_name', '' ); ?></h1>
-        <p><?php echo of_get_option( 'option_artist_description', '' ); ?></p>
+<div class="home-slider-container">
+    <ul class="home-slider">
+        <?php
+            foreach ($slides as $slide) {
+                $slideMainImage        = current(rwmb_meta('GAL_image', array('type' => 'image_advanced'), $slide->ID));
+                $slideMainImageUrl     = get_permalink($slide);
+                $postMainImageSrc     = wp_get_attachment_image_src($slideMainImage["ID"], 'full');
+                $slideMainImageTag     = wp_get_attachment_image($slideMainImage["ID"], 'full');
+        ?>
 
-        <h2>En ce moment</h2>
-        <p><?php echo of_get_option( 'option_artist_news', '' ); ?></p>
+        <li>
+            <a href=" <?php echo $slideMainImageUrl ?> " title=" <?php echo $slide->post_title ?> ">
+                <!-- <?php echo $slideMainImageTag ?> -->
+                <img src="<?php echo $postMainImageSrc[0] ?>" alt="<?php echo $slide->post_title ?>">
+            </a>
+        </li>
 
-        <h2>Sider</h2>
-        <ul>
-            <?php
-                foreach ($slides as $slide) {
-                    $slideMainImage        = current(rwmb_meta('GAL_image', array('type' => 'image_advanced'), $slide->ID));
-                    $slideMainImageUrl     = get_permalink($slide);
-                    $slideMainImageTag     = wp_get_attachment_image($slideMainImage["ID"], 'full');
-            ?>
-
-            <li>
-                <a href=" <?php echo $slideMainImageUrl ?> " title=" <?php echo $slide->post_title ?> ">
-                    <?php echo $slideMainImageTag ?>
-                </a>
-                <p> <?php echo $slide->post_title ?> </p>
-            </li>
-
-            <?php
-                }
-            ?>
-        </ul>
-    </div>
-
+        <?php
+            }
+        ?>
+    </ul>
+    <div class="legend"></div>
 </div>
+
 <?php get_footer(); ?>

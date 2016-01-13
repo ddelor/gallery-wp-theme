@@ -113,18 +113,27 @@ jQuery( document ).ready(function( $ ) {
 
             // }
 
-            var homeSlider = jQuery(".home-slider").sudoSlider({
+            var homeSlider = $(".home-slider").sudoSlider({
                 autoHeight:false,
                 speed:800,
                 touch:true,
-                numeric:true,
+                numeric:false,
                 controlsAttr:'class="home-slider-pagination"',
                 prevNext:true,
                 continuous: true,
                 controlsFade:false,
-                auto:true,
+                auto:false,
                 pause:3000,
-                effect: "slide"
+                effect: "fade",
+                afterAnimation: function(slide){
+                    var text = $(this).find('img').attr('alt');
+                    $('.legend').text(text);
+                },
+                initCallback: function() {
+                    var slide = this.getValue("currentSlide");
+                    var text = this.getSlide(slide).find('img').attr('alt');
+                    $('.legend').text(text);
+                }
             });
         },
 
@@ -132,7 +141,7 @@ jQuery( document ).ready(function( $ ) {
             // this.initPlugins();
             this.menu();
             this.events();
-            // this.slider();
+            this.slider();
         }
     };
 

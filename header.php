@@ -13,7 +13,7 @@
 <body <?php body_class(); ?>>
 
     <nav class="nav-menu">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/menu-bg.png">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/front/images/menu-bg.png">
         <a class="toggle-menu" title="Menu"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
         <?php wp_nav_menu(array('theme_location' => 'header')); ?>
     </nav>
